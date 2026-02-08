@@ -456,7 +456,7 @@ async function startPolling(historyId, token, orderId) {
                     // Store Turnitin score and similarity; use '*' when score < 20
                     if (first.turnitin_score !== undefined && first.turnitin_score !== null) {
                         const scoreNum = Number(first.turnitin_score);
-                        updates.turnitin_score = (!isNaN(scoreNum) && scoreNum < 20) ? '*' : String(first.turnitin_score);
+                        updates.turnitin_score = (!isNaN(scoreNum) && scoreNum>0 && scoreNum < 20) ? '*' : String(first.turnitin_score);
                     }
 
                     if (first.turnitin_similarity !== undefined && first.turnitin_similarity !== null) {
